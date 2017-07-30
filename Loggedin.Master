@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Loggedin.master.cs" Inherits="VMoney.Loggedin" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %>- Virtual Money</title>
+    <asp:PlaceHolder ID="PlaceHolder1" runat="server">     
+          <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>  
+    <webopt:BundleReference ID="BundleReference1" runat="server" Path="~/Content/css" /> 
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form id="Form1" runat="server" autocomplete="off" method="post">
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">
+                    <a id="A1" runat="server" href="~/">VirtualMoney</a>
+                </p>
+            </div>
+            <div class="float-right">
+                <section id="login">                                    
+                           <p>Hello <asp:Label ID="lblCurrentUser" runat="server"></asp:Label></p>                
+                            <ul>
+                               <li><a id="loginLink" runat="server" href="~/Home.aspx">Log out</a></li>
+                            </ul>            
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li><a id="A3" runat="server" href="~/Loggedin/Dashboard.aspx">Dashboard</a></li>
+                        <li><a id="A4" runat="server" href="~/Loggedin/Profile.aspx">Profile</a></li>
+                        <li><a id="A5" runat="server" href="~/Loggedin/UserMgmt.aspx">User Management</a></li>
+                        <li><a id="A6" runat="server" href="~/Loggedin/Settings.aspx">Settings</a></li>
+                        <li><a id="A7" runat="server" href="~/Loggedin/UserMsgs.aspx">User's Feedback</a></li>
+                        <li><a id="A2" runat="server" href="~/Loggedin/Resumes.aspx">Resumes</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header><br />
+    <div id="body">
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            <br />
+        </section> 
+    </div>
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-right">
+                <p>&copy; <%: DateTime.Now.Year %>- vMoney</p>
+            </div>
+        </div>
+    </footer>  
+     
+    </body>
+    
+</html>
