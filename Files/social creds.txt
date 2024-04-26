@@ -1,0 +1,3 @@
+http://testasp.vulnweb.com?Username=resrchr4&Password=P@$$w0rd
+https://github.com?Username=resrchr4&Password=P@$$w0rd
+https://twitter.com?Username=resrchr4&Password=P@$$w0rd
