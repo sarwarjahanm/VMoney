@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Collections;
+using System.IdentityModel.Tokens.Jwt;
 
 
 namespace VMoney
@@ -160,6 +161,10 @@ namespace VMoney
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            const secret = "s3cR3t2024";
+            string jwt = this.httpContext.Request.Headers["Authorization"];
+            var handler = new JwtSecurityTokenHandler();
+            var token = handler.ReadJwtToken(jwt);
             Master.SetlblCurrentUser = fetchFullname(Session["user"].ToString());
             lblUsername.Text = Session["user"].ToString();
             fetchAccounts();
