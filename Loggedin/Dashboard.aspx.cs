@@ -161,13 +161,53 @@ namespace VMoney
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            const secret = "s3cR3t2024";
+            //const secret = "TW9zaGvFcMv6uhPDMf0zUtLEq";
             string jwt = this.httpContext.Request.Headers["Authorization"];
             var handler = new JwtSecurityTokenHandler();
-            var token = handler.ReadJwtToken(jwt);
+            var tokenS = handler.ReadJwtToken(jwt);
+            var role = tokenS.Claims.First(claim => claim.Type == "role").Value;
+            
             Master.SetlblCurrentUser = fetchFullname(Session["user"].ToString());
             lblUsername.Text = Session["user"].ToString();
-            fetchAccounts();
+
+            if (role.Equals("A"))
+            {                
+                divDetails.Attributes["style"] = "visibility:visible;";
+                SqlDataReader readers = null;
+
+                try
+                {
+                    SqlConnection connect = new SqlConnection(connections);
+                    string Query = "select * FROM ACCOUNTS";
+                    SqlCommand command = new SqlCommand(Query, connect);
+                    connect.Open();
+                    readers = command.ExecuteReader();  
+
+                }
+                catch (Exception f)
+                {
+                    lblMsg.Text = f.Message.ToString();
+                }
+
+                if (readers.HasRows)
+                {
+                    lblMsg.Text = "All User's Account Details::";                    
+                    GridView1.DataSource = readers;
+                    GridView1.DataBind();
+                }
+                else
+                {
+                    lblMsg.Text = "No Data Found!!";
+                    GridView1.DataSource = null;
+                    GridView1.DataBind();
+                }
+            }
+            else
+            {
+                divDetails.Attributes["style"] = "visibility: hidden;";
+                lblMsg.Text = "OOPS!!! You are not an admin to view All User's Account Details!! ";
+                fetchAccounts();
+            }
 
         }
 
