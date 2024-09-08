@@ -35,7 +35,7 @@ namespace VMoney
 
             catch (Exception ex)
             {
-                //
+                response.sendError(ex.StackTrace);
             }
 
             return fname;
@@ -71,7 +71,7 @@ namespace VMoney
 
             catch (Exception ex)
             {
-                //
+                response.sendError(ex.StackTrace);
             }
         }
 
@@ -108,7 +108,7 @@ namespace VMoney
 
             catch (Exception ex)
             {
-                //
+                response.sendError(ex.StackTrace);
             }
 
         }
@@ -154,7 +154,7 @@ namespace VMoney
 
             catch (Exception ex)
             {
-                //
+                response.sendError(ex.StackTrace);
             }
 
         }
